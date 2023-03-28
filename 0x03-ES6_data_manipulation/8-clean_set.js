@@ -1,7 +1,7 @@
 export default function cleanSet(set, startString) {
   let result = '';
   let firstSubstring = true;
-  if (!set || !startString) {
+  if (!set || !startString || !(set instanceof Set) || typeof startString !== 'string') {
     return '';
   }
   for (const value of set.values()) {
