@@ -6,13 +6,14 @@ export default function cleanSet(set, startString) {
   }
   for (const value of set.values()) {
     if (value.startsWith(startString)) {
-      if (value.substring(startString.length)) {
+      const substring = value.substring(startString.length);
+      if (substring && substring !== value) {
         if (firstSubstring) {
           firstSubstring = false;
         } else {
           result += '-';
         }
-        result += value.substring(startString.length);
+        result += substring;
       }
     }
   }
